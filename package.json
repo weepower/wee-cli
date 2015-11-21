@@ -1,21 +1,19 @@
 {
 	"name": "wee-cli",
-	"version": "1.0.0-beta",
-	"description": "Blueprint for modern web development",
+	"version": "1.0.0",
+	"description": "Global command line interface for Wee",
 	"homepage": "https://www.weepower.com",
 	"license": "Apache-2.0",
 	"keywords": [
-		"css",
-		"framework",
-		"javascript",
-		"responsive"
+		"cli",
+		"wee"
 	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/weepower/wee-cli.git"
 	},
 	"bugs": {
-		"url": "https://github.com/weepower/wee-cli/issues"
+		"url": "https://github.com/weepower/wee/issues"
 	},
 	"bin": {
 		"wee" : "lib/wee.js"

@@ -4,6 +4,11 @@ This repository is part of the [Wee framework](https://github.com/weepower/wee).
 
 [![NPM version](https://img.shields.io/npm/v/wee-cli.svg?style=flat)](https://www.npmjs.com/package/wee-cli)
 
+## Getting Started
+
+* Install from npm using `npm install -g wee-cli`
+* To update to the latest version run `npm update -g wee-cli`
+
 ## Bugs
 
 Have a bug or a feature request? [Open a new issue](https://github.com/weepower/wee/issues).  
