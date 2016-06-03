@@ -8,13 +8,8 @@
 		"cli",
 		"wee"
 	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/weepower/wee-cli.git"
-	},
-	"bugs": {
-		"url": "https://github.com/weepower/wee/issues"
-	},
+	"repository": "weepower/wee-cli",
+	"bugs": "https://github.com/weepower/wee/issues",
 	"bin": {
 		"wee" : "lib/wee.js"
 	},
