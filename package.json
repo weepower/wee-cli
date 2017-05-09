@@ -1,5 +1,5 @@
 {
-	"name": "wee-cli",
+	"name": "wee3-cli",
 	"version": "1.1.0",
 	"description": "Global command line interface for Wee",
 	"homepage": "https://www.weepower.com",
@@ -11,7 +11,7 @@
 	"repository": "weepower/wee-cli",
 	"bugs": "https://github.com/weepower/wee/issues",
 	"bin": {
-		"wee" : "lib/wee.js"
+		"wee3" : "lib/wee.js"
 	},
 	"preferGlobal": true
 }
