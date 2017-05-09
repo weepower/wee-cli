@@ -11,7 +11,10 @@
 	"repository": "weepower/wee-cli",
 	"bugs": "https://github.com/weepower/wee/issues",
 	"bin": {
-		"wee" : "lib/wee.js"
+		"wee": "lib/wee.js"
 	},
-	"preferGlobal": true
+	"preferGlobal": true,
+	"dependencies": {
+		"commander": "^2.9.0"
+	}
 }
