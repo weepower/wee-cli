@@ -16,6 +16,7 @@
 browserstack.js
 codekit-config.json
 prepros.json
+node_modules/
 
 
 #------------------------------------
