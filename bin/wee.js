@@ -26,6 +26,8 @@ if (command === 'serve') {
     options.plugins = [
         './config/browser-sync'
     ];
+
+    args.mode = 'development'
 }
 
 const service = new Service(process.env.WEE_CLI_CONTEXT || process.cwd(), options);
