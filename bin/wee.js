@@ -12,7 +12,8 @@ const rawArgv = process.argv.slice(2);
 const args = require('minimist')(rawArgv, {
     boolean: [
         // build
-        'fail-silently',
+        'noexit',
+        'silent',
         'modern',
         'report',
         'report-json',
@@ -22,6 +23,7 @@ const args = require('minimist')(rawArgv, {
 const command = args._[0];
 const options = {};
 
+// Set required plugins and config for the serve command
 if (command === 'serve') {
     options.plugins = [
         './config/browser-sync'
@@ -33,26 +35,39 @@ if (command === 'serve') {
 const service = new Service(process.env.WEE_CLI_CONTEXT || process.cwd(), options);
 
 service.run(command, args, rawArgv).catch(err => {
-    let message = err;
-    let errors = null;
+    if (! args.silent) {
+        error('Build failed with errors:\n');
+        if (err.stack) {
+            log(err.stack);
+        } else {
+            log(err);
+        }
 
-    if (Array.isArray(err)) {
-        message = err[0];
-        errors = err[1];
+        if (command !== 'serve' && ! args.noexit) {
+            process.exit(1);
+        }
     }
+    // console.log(err);
+    // if (command !== 'serve') {
+    //     let message = err;
+    //     let errors = null;
 
-    log('\n\n');
-    error(message);
+    //     if (Array.isArray(err)) {
+    //         message = err[0];
+    //         errors = err[1];
+    //     }
 
-    if (errors && errors.length) {
-        log('\n\n');
-        log(errors);
-    }
+    //     log();
+    //     error(message);
 
-    if (command !== 'serve') {
-        process.exit(1);
-    }
-})
+    //     if (errors && errors.length) {
+    //         log();
+    //         log(errors);
+    //     }
+
+    //     process.exit(1);
+    // }
+});
 
 program.parse(process.argv);
 
