@@ -16,7 +16,8 @@ program
     .option('-m, --mode [mode]', 'The environment to build for', 'production')
     .action((options) => {
         service.run('build', options).catch((err) => {
-            error(err);
+            log();
+            log(err);
             process.exit(1);
         });
     });
@@ -28,7 +29,13 @@ program
     .action((options) => {
         service.pushPlugin('./config/browser-sync');
         service.run('serve', options).catch((err) => {
-            log(err);
+            log();
+
+            if (err.stack) {
+                log(err.stack);
+            } else {
+                log(err);
+            }
         });
     });
 
@@ -36,6 +43,7 @@ program
     .command('make:component <name>')
     .description('make a component')
     .option('-v, --vue', 'create vue component')
+    .option('-s, --scss', 'create style only component')
     .option('-r, --root', 'vue only - configure as root component (mounted to page)')
     .option('-c, --clean', 'strip out bootstrapping code from generated files')
     .action((name, options) => {
@@ -75,9 +83,6 @@ function registerUsercommands() {
 }
 
 registerUsercommands();
-
-
-
 
 // Output help if no command was executed
 if (! process.argv.slice(2).length) {

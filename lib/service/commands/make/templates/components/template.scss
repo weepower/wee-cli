@@ -2,13 +2,13 @@
     color: black;
 }
 
-@tablet {
+@include tablet {
     .selector {
         color: blue;
     }
 }
 
-@desktop {
+@include desktop {
     .selector {
         color: white;
     }
