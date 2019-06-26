@@ -1,11 +1,6 @@
 #! /usr/bin/env node
 
-const commander = require('commander');
-const program = new commander.Command();
 const { error, log } = require('../lib/utils/log');
-
-program.version(require('../package').version);
-
 const Service = require('../lib/service/Service');
 
 const rawArgv = process.argv.slice(2);
@@ -44,10 +39,13 @@ const service = new Service(process.env.WEE_CLI_CONTEXT || process.cwd(), option
 
 service.run(command, args, rawArgv).catch(err => {
     if (! args.silent) {
-        error('Build failed with errors:\n');
-        if (err.stack) {
+        if (command === 'build') {
+            error('Build failed with errors:\n');
+        }
+
+        if (err && err.stack) {
             log(err.stack);
-        } else {
+        } else if (err) {
             log(err);
         }
 
@@ -56,12 +54,6 @@ service.run(command, args, rawArgv).catch(err => {
         }
     }
 });
-
-program.parse(process.argv);
-
-if (! process.argv.slice(2).length) {
-    program.outputHelp();
-}
 
 // init - new project
 // component - new component
