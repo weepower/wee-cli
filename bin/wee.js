@@ -10,7 +10,15 @@ const Service = require('../lib/service/Service');
 
 const rawArgv = process.argv.slice(2);
 const args = require('minimist')(rawArgv, {
+    string: [
+        // component
+        'name',
+    ],
     boolean: [
+        // component
+        'vue',
+        'root',
+        'empty',
         // build
         'noexit',
         'silent',
@@ -47,26 +55,6 @@ service.run(command, args, rawArgv).catch(err => {
             process.exit(1);
         }
     }
-    // console.log(err);
-    // if (command !== 'serve') {
-    //     let message = err;
-    //     let errors = null;
-
-    //     if (Array.isArray(err)) {
-    //         message = err[0];
-    //         errors = err[1];
-    //     }
-
-    //     log();
-    //     error(message);
-
-    //     if (errors && errors.length) {
-    //         log();
-    //         log(errors);
-    //     }
-
-    //     process.exit(1);
-    // }
 });
 
 program.parse(process.argv);
