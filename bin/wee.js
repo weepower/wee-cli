@@ -29,13 +29,7 @@ program
     .action((options) => {
         service.pushPlugin('./config/browser-sync');
         service.run('serve', options).catch((err) => {
-            log();
-
-            if (err.stack) {
-                log(err.stack);
-            } else {
-                log(err);
-            }
+            log(err);
         });
     });
 
