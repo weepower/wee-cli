@@ -72,7 +72,7 @@ function registerUsercommands() {
     const userCommands = glob.sync(`${service.paths.commands}/**/*.js`);
 
     userCommands.forEach((command) => {
-        require(command)(program);
+        require(command)(program, service);
     });
 }
 
