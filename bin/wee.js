@@ -13,6 +13,8 @@ program
     .command('build')
     .description('build for specified environment')
     .option('-r, --report', 'Open webpack bundle analyzer in a browser')
+    .option('-s, --silent', 'Do not output any information to the console')
+    .option('-l, --lint', 'Lint Vue and JS files', { defaultValue: true })
     .option('-m, --mode [mode]', 'The environment to build for', 'production')
     .action((options) => {
         service.run('build', options).catch((err) => {
