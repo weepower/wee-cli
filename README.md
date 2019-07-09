@@ -6,8 +6,8 @@ This repository is part of the [Wee framework](https://github.com/weepower/wee).
 
 ## Get Started
 
-* Install from npm using `npm install -g wee-cli`
-* To update to the latest version run `npm update -g wee-cli`
+* Install from npm using `npm install -g @weepower/cli`
+* To update to the latest version run `npm update -g @weepower/cli`
 
 ## Bugs
 
