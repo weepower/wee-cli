@@ -1,6 +1,6 @@
 {
   "name": "@weepower/cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Global command line interface for Wee",
   "bin": {
     "wee": "bin/wee.js"
