@@ -36,6 +36,15 @@ program
     });
 
 program
+    .command('reset')
+    .description('remove boilerplate')
+    .action((options) => {
+        service.run('reset', options).catch((err) => {
+            log(err);
+        });
+    });
+
+program
     .command('make:component <name>')
     .description('make a component')
     .option('-v, --vue', 'create vue component')
@@ -55,7 +64,7 @@ program
 
 program
     .command('make:command <name>')
-    .description('make a component')
+    .description('make a command')
     .action((name, options) => {
         const service = new Service(process.env.WEE_CLI_CONTEXT || process.cwd());
 
