@@ -36,6 +36,16 @@ program
     });
 
 program
+    .command('lint')
+    .description('lint the project with eslint')
+    .option('-f, --fix', 'automatically fix certain eslint errors')
+    .action((options) => {
+        service.run('lint', options).catch((err) => {
+            log(err);
+        });
+    });
+
+program
     .command('reset')
     .description('remove boilerplate')
     .action((options) => {
