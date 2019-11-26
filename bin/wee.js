@@ -36,11 +36,21 @@ program
     });
 
 program
-    .command('lint')
+    .command('eslint')
     .description('lint the project with eslint')
     .option('-f, --fix', 'automatically fix certain eslint errors')
     .action((options) => {
-        service.run('lint', options).catch((err) => {
+        service.run('eslint', options).catch((err) => {
+            log(err);
+        });
+    });
+
+program
+    .command('stylelint')
+    .description('lint the project with stylelint')
+    .option('-f, --fix', 'automatically fix certain eslint errors')
+    .action((options) => {
+        service.run('stylelint', options).catch((err) => {
             log(err);
         });
     });
